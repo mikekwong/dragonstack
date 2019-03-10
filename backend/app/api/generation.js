@@ -2,9 +2,9 @@ const { Router } = require('express')
 
 const router = new Router()
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    res.json({ generation: req.app.locals.engine.generation })
+    await res.json({ generation: req.app.locals.engine.generation })
   } catch (error) {
     next(error)
   }
